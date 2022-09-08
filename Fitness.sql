@@ -1,13 +1,25 @@
-CREATE TABLE ID_Generator(
-    ID_Number INT IDENTITY (1,5),
-    PRIMARY Key (ID_Number)
+CREATE TABLE IF NOT EXISTS Security_Questions(
+
+Security_Question VARCHAR(255) NOT NULL,
+PRIMARY KEY (Security_Question)
+
+);
+
+CREATE TABLE IF NOT EXISTS ID_Generator(
+    ID_Number INT AUTO_INCREMENT,
+    PRIMARY KEY (ID_Number)
 );
     
-    CREATE TABLE Client(
+CREATE TABLE IF NOT EXISTS Client(
+    User_Names VARCHAR(255) NOT NULL,
     First_Name VARCHAR(30) NOT NULL,
     Last_Name VARCHAR(30) NOT NULL,
     Id_Number INT NOT NULL,
     FOREIGN KEY (ID_Number) REFERENCES ID_Generator(ID_Number),
+	Passwords VARCHAR(255) NOT NULL,
+    Security_Question VARCHAR(255) NOT NULL,
+    FOREIGN KEY (Security_Question) REFERENCES security_questions(Security_Question),
+    Security_Answer VARCHAR(255) NOT NULL,
     Gender CHAR NOT NULL 
     CHECK (Gender IN ('M','F','m','f')),
     Age INT NOT NULL,
@@ -19,7 +31,7 @@ CREATE TABLE ID_Generator(
     
     
     
-    CREATE TABLE Goal_Generator(
+CREATE TABLE IF NOT EXISTS Goal_Generator(
     Goals INT NOT NULL,
     Height INT NOT NULL,
     Weights DECIMAL(5,2) NOT NULL,
@@ -31,22 +43,17 @@ CREATE TABLE ID_Generator(
     
     
     
-    CREATE TABLE Milestones(
+CREATE TABLE IF NOT EXISTS Milestones(
     
     Goals INT NOT NULL,
     FOREIGN KEY (Goals) REFERENCES Goal_Generator (Goals),
-    Reward VARCHAR(50) NOT NULL
+    Reward VARCHAR(255) NOT NULL
     );
     
     
     
-    CREATE TABLE Intesity(
+CREATE TABLE IF NOT EXISTS Intesity(
     Goals INT NOT NULL,
-    Intensity_Training_Videos VARCHAR(60) NOT NULL,
+    Intensity_Training_Videos VARCHAR(255) NOT NULL,
     FOREIGN KEY(Goals) REFERENCES Goal_Generator (Goals)
     );
-
-
-
-
-
