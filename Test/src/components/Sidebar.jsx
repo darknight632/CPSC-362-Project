@@ -11,7 +11,13 @@ const Sidebar = () => {
 
   return (
     <div className='m1-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
-      {ac}
+      {activeMenu && (<>
+        <div className='flex justify-between items-center'>
+          <Link to='/' onClick={() => {}} className="items-center">
+            <SiShopware /> <span>Progress</span>
+          </Link>
+        </div>
+      </>)}
     </div>
   )
 }

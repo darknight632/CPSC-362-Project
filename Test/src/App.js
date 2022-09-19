@@ -8,7 +8,7 @@ import { Stacked, Pyramid, Kanban, Area, Bar, Pie, ColorPicker, ColorMapping, Ed
 import './App.css';
 
 const App = () => {
-    const activeMenu = true;
+    const activeMenu = false;
 
     return (
         <div>
