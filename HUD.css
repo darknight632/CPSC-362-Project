@@ -11,6 +11,7 @@
 
 html{
     font-size: 14px;
+    background: #f7f7f7;
 }
 
 body{
@@ -174,7 +175,8 @@ main .insights{
 
 main .insights > div{
     background: white;
-    padding: lightgray;
+    padding: white;
+    border-radius: 1rem;
     margin-top: 1rem;   
 }
 
@@ -183,7 +185,9 @@ main .insights > div span{
     padding: 0.5rem;
     border-radius: 50%;
     color:white;
-    font-size: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    font-size: 1.8rem;
 }
 
 main .insights > div .calories span{
@@ -226,6 +230,11 @@ main .insights .calories svg circle{
     stroke-dasharray: 100;
 }
 
+main .insights .progress svg circle{
+    stroke-dashoffset: 100;
+    stroke-dasharray: 200;
+}
+
 main .insights .Progress .Number{
     position: absolute;
     top: 2.5rem;
@@ -235,32 +244,4 @@ main .insights .Progress .Number{
     display: flex;
     justify-content: center;
     align-content: center;
-}
-main .insights .Progress .Number .numerator{
-    font-size: 8px;
-    color: black;
-    background: transparent;
-}
-
-main .insights .Progress .Number .numerator{
-    font-size: .7em;
-    line-height: .7em;
-    vertical-align: .3em;
-    color: black;
-    background: transparent;
-}
-
-main .insights .Progress .Number .denominator{
-    font-size: .7em;
-    line-height: .7em;
-    vertical-align: .3em;
-    color: black;
-    background: transparent;
-}
-
-main .insights .slash-entity{
-    font-size: .8em;
-    line-height: .8em;
-    color: black;
-    background: transparent;
 }
