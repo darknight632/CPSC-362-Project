@@ -1,9 +1,9 @@
 import React from 'react'
 
-const colorMapping = () => {
+const ColorMapping = () => {
   return (
-    <div>colorMapping</div>
+    <div>ColorMapping</div>
   )
 }
 
-export default colorMapping
+export default ColorMapping

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const stacked = () => {
+const Stacked = () => {
   return (
-    <div>stacked</div>
+    <div>Stacked</div>
   )
 }
 
-export default stacked
+export default Stacked

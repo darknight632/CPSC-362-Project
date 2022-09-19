@@ -8,7 +8,7 @@ import { Stacked, Pyramid, Kanban, Area, Bar, Pie, ColorPicker, ColorMapping, Ed
 import './App.css';
 
 const App = () => {
-    const activeMenu = false;
+    const activeMenu = true;
 
     return (
         <div>
@@ -16,11 +16,7 @@ const App = () => {
                 <div className="flex relative dark:bg-main-dark-bg">
                     <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
                         <TooltipComponent content="Settings" position="Top">
-                            <button type="button"
-                                className="text-3x1 p-3 
-                                hover: drop-shadow-x1 
-                                hover:bg-light-gray 
-                                text-white"
+                            <button type="button" className="text-3x1 p-3 hover:drop-shadow-x1  hover:bg-light-gray  text-white"
                                 style={{ backgroundColor: 'lightblue', borderRadius: '50%' }}>
                                 <FiSettings />
                             </button>

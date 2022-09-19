@@ -1,9 +1,9 @@
 import React from 'react'
 
-const lineChart = () => {
+const LineChart = () => {
   return (
-    <div>lineChart</div>
+    <div>LineChart</div>
   )
 }
 
-export default lineChart
+export default LineChart
