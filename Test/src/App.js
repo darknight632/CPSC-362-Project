@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Navbar, Footer, Sidebar, ThemeSettings, UserProfile } from './components';
 import { Stacked, Pyramid, Kanban, Area, Bar, Pie, ColorPicker, ColorMapping, Editor, Calender, Dashboard } from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -50,7 +50,7 @@ const App = () => {
                             <Route path="/Dashboard" element={(<Dashboard />)} />
 
                             {/* Pages */}
-                            <Route path='/Profile' element="Profile" />
+                            <Route path='/UserProfile' element={(<UserProfile />)} />
                             <Route path="/Progress" element="Progress" />
 
                         </Routes>
