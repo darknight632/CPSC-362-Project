@@ -40,7 +40,7 @@ module.exports = {
         },
         backgroundImage: {
           'hero-pattern':
-            "url('https://demos.wrappixel.com/premium-admin-templates/react/flexy-react/main/static/media/welcome-bg-2x-svg.25338f53.svg')",
+            "url('https://static.vecteezy.com/system/resources/previews/000/598/238/original/light-blue-cool-vector-low-poly-crystal-background-polygon-design-pattern-low-poly-illustration-background.jpg')",
         },
       },
     },

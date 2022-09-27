@@ -11,7 +11,7 @@ import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 
 const App = () => {
-    const {activeMenu} = useStateContext();
+    const { activeMenu } = useStateContext();
 
     return (
         <div>
@@ -41,19 +41,18 @@ const App = () => {
                         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
                             <Navbar />
                         </div>
-                    </div>
+                        <div>
+                            <Routes>
+                                {/* Dashboard */}
+                                <Route path='/' element={(<Dashboard />)} />
+                                <Route path="/Dashboard" element={(<Dashboard />)} />
 
-                    <div>
-                        <Routes>
-                            {/* Dashboard */}
-                            <Route path='/' element={(<Dashboard />)} />
-                            <Route path="/Dashboard" element={(<Dashboard />)} />
+                                {/* Pages */}
+                                <Route path='/UserProfile' element={(<UserProfile />)} />
+                                <Route path="/Progress" element="Progress" />
 
-                            {/* Pages */}
-                            <Route path='/UserProfile' element={(<UserProfile />)} />
-                            <Route path="/Progress" element="Progress" />
-
-                        </Routes>
+                            </Routes>
+                        </div>
                     </div>
                 </div>
             </BrowserRouter >
