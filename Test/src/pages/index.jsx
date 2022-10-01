@@ -2,7 +2,7 @@ export { default as Dashboard } from './Dashboard';
 export { default as Kanban } from './Kanban';
 export { default as Editor } from './Editor';
 export { default as ColorPicker } from './ColorPicker';
-export { default as Calender } from './Calender';
+export { default as Calendar } from './Calendar';
 export { default as Area } from './charts/Area';
 export { default as Bar } from './charts/Bar';
 export { default as ColorMapping } from './charts/ColorMapping';
