@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className='flex'>
       <TooltipComponent content="Profile" position="BottomCenter">
         <button className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => handleClicked('userProfile')}>
-          {<CgProfile/>}
+            {<CgProfile size='20px'/>}
         </button>
       </TooltipComponent>
       {isClicked.userProfile && (<UserProfile/>)}

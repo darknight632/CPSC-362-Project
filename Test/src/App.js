@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings, UserProfile } from './components';
-import { Stacked, Pyramid, Kanban, Area, Bar, Pie, ColorPicker, ColorMapping, Editor, Calendar, Dashboard } from './pages';
+import { Calendar, Dashboard } from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 
