@@ -1,15 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ScheduleComponent, ViewsDirective, Day, Week, WorkWeek, Month, Agenda, Inject, Resize,  DragAndDrop} from '@syncfusion/ej2-react-schedule';
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 import {Header} from '../components';
 
+const PropertPane = (props) => <div className='mt-5'>{props.children}</div>
+
 const Calendar = () => {
+
+  const [scheduleObj, setScheduleObj] = useState();
+
+  const change = (args) => {
+    scheduleObj.selectedDate = args.value;
+    scheduleObj.dateBind();
+  }
+  const onDragStart = (arg) => {
+    arg.navigation.enable = true;
+  }
+
   return (
     <div className='m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl '>
       <Header category='App' title="Calendar"/>
+<<<<<<< HEAD
       <ScheduleComponent height="650px">
+=======
+      <ScheduleComponent height= "650px" ref={(schedule) => setScheduleObj(schedule)} selectedDate={new Date()} dragStart={onDragStart}>
+        <ViewsDirective>
+          {['Day','Week','WorkWeek','Month','Agenda'].map((item) => <ViewsDirective key={item} option = {item} />)}
+        </ViewsDirective>
+>>>>>>> bf73b2a0ed11b6e3ada381fe129d59f0b7c4e735
         <Inject services={[Day,Week,WorkWeek,Month,Agenda,Resize, DragAndDrop]}/>
       </ScheduleComponent>
+      <PropertPane>
+        <table style={{width: '100%', background: 'white'}}>
+          <tbody>
+            <tr style={{height: '50px'}}>
+              <td style={{width: '100%'}}>
+                <DatePickerComponent value={new Date()} showClearButton={false} placeholder="Current Date" floatLabelType='Always' change={change}/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </PropertPane>
     </div>
   )
 }
