@@ -20,14 +20,7 @@ const Calendar = () => {
   return (
     <div className='m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl '>
       <Header category='App' title="Calendar"/>
-<<<<<<< HEAD
       <ScheduleComponent height="650px">
-=======
-      <ScheduleComponent height= "650px" ref={(schedule) => setScheduleObj(schedule)} selectedDate={new Date()} dragStart={onDragStart}>
-        <ViewsDirective>
-          {['Day','Week','WorkWeek','Month','Agenda'].map((item) => <ViewsDirective key={item} option = {item} />)}
-        </ViewsDirective>
->>>>>>> bf73b2a0ed11b6e3ada381fe129d59f0b7c4e735
         <Inject services={[Day,Week,WorkWeek,Month,Agenda,Resize, DragAndDrop]}/>
       </ScheduleComponent>
       <PropertPane>
