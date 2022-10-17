@@ -1,6 +1,6 @@
 import React from "react";
-import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineCancel } from "react-icons/md";
 import { Button } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 import { userProfileData } from "../data/dummy";
@@ -13,7 +13,7 @@ const UserProfile = () => {
     <div className="nav-item absolute right-1 top-16 bg-white p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
         <p className="font-semibold text-lg dark:text-gray-200">User Profile</p>
-        <button
+        <Button
           icon={<MdOutlineCancel />}
           color="rgb(153,171,180)"
           bgHoverColor="light-gray"
@@ -23,9 +23,9 @@ const UserProfile = () => {
       </div>
       <div>
         {userProfileData.map((item, index) => (
-          <div key={index} className='flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer'>
+          <div key={index} onClick={() => {navigate(`/${item.name}`)}} className='flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer'>
             <button type='button' style={{ color: item.iconColor, backgroundColor: item.iconBg }} className='text-xl rounded-lg p-3 hover:bg-light-gray '>
-              {item.icon}
+              {item.icon} 
             </button>
             <div>
               <p className="font-semi-bold"> {item.title} </p>
