@@ -7,6 +7,7 @@ import { userProfileData } from "../data/dummy";
 
 const UserProfile = () => {
   const { currentColor } = useStateContext;
+  const navigate = useNavigate();
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white p-8 rounded-lg w-96">
@@ -34,7 +35,7 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
-        <Button color='black' bgColor={currentColor} text="Log Out" borderRadius='10px' width='full' />
+        <Button onClick={() => navigate('/Calendar')}color='black' bgColor={currentColor} text="Log Out" borderRadius='10px' width='full' />
       </div>
     </div>
   );
