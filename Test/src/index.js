@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { ContextProvider } from './contexts/ContextProvider';
@@ -9,10 +9,12 @@ import './LoginForm.css';
 //import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  <BrowserRouter>
     <ContextProvider>
-        <App />
-    </ContextProvider>,
-    document.getElementById('root')
+      <App />
+    </ContextProvider>
+  </ BrowserRouter>,
+  document.getElementById('root')
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
