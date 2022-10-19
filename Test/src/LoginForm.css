@@ -25,7 +25,7 @@ form {
 	position: relative;
 }
 
-form:after {
+.App:after {
 	content: ' ';
 	display: block;
 	position: absolute;

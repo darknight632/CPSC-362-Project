@@ -69,7 +69,7 @@ const App = () => {
               {/* Pages */}
               <Route path="/UserProfile" element={<UserProfile />} />
               <Route path="/Progress" element="Progress" />
-              <Route path="/Calendar" element={<Calendar />} />
+              <Route path="/Calendar" strict element={<Calendar />} />
             </Routes>
           </div>
         </div>
