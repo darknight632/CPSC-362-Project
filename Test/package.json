@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.10",
     "@syncfusion/ej2": "^19.4.48",
     "@syncfusion/ej2-react-calendars": "^19.4.48",
     "@syncfusion/ej2-react-charts": "^19.4.50",
@@ -15,7 +18,9 @@
     "@syncfusion/ej2-react-schedule": "^19.4.50",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-horizontal-scrolling-menu": "^3.2.0",
     "react-icons": "^4.3.1",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0"
   },
@@ -24,8 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

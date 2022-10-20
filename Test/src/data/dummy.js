@@ -73,7 +73,7 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'Progress',
+        name: 'Exercise',
         icon: <FiActivity />,
       },
     ],
