@@ -10,7 +10,7 @@ import {
   UserProfile,
   Login,
 } from "./components";
-import { Calendar, Dashboard } from "./pages";
+import { Calendar, Dashboard,Exercise } from "./pages";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
@@ -68,7 +68,7 @@ const App = () => {
 
               {/* Pages */}
               <Route path="/UserProfile" element={<UserProfile />} />
-              <Route path="/Progress" element="Progress" />
+              <Route path="/Exercise" element={<Exercise />} />
               <Route path="/Calendar" strict element={<Calendar />} />
             </Routes>
           </div>
