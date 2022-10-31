@@ -10,6 +10,8 @@ export { default as ExercisePic } from './Exercise/ExercisePic';
 export { default as Search } from './Exercise/Search';
 export { default as ExerciseMain } from './Exercise/ExerciseMain';
 export { default as Loader } from './Exercise/Loader';
+export { default as Details} from './Exercise/Details';
+export { default as Video } from './Exercise/Video';
 export { default as ChartsHeader } from './ChartsHeader';
 export { default as Header } from './Header';
 export { default as Login} from './LoginForm';
