@@ -1,127 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 * {
-    font-family: 'Poppins', sans-serif;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
-body {
+.body {
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.card {
-    width: 300px;
-    height: 440px;
-    border-radius: 30px;
-    padding: 30px;
-    backdrop-filter: blur(15px);
-    box-shadow: 10px 10px 70px rgba(0, 0, 00.2);
-    border: solid 1px rgb(0, 153, 255);
-    background: rgb(255, 255, 255, 0.3);
-    position: relative;
-    z-index: 3;
-}
-
-.card .profile-pic {
-    display: flex;
     justify-content: center;
-    position: relative;
-    top: -95px;
-
 }
 
-.card .profile-pic img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50% 10%;
-    border: solid 4px rgb(0, 153, 255);
-    box-shadow: 10px 10px 30px rgb(0, 0, 0, 0.4);
+.profile-card {
 
-}
-
-.card .profile-name {
-    top: -60px;
-    position: relative;
-}
-
-.card .profile-name h2 .card .profile-name p {
+    width: 400px;
     text-align: center;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.card .profile-button {
-
-    justify-content: space-between;
-    margin: 1px 0px;
+.card-header {
+    background: #2c3a47;
+    padding: 60px 40px;
 }
 
-.card .profile-button Button {
-    padding: 15px 40px;
-    border: 1.5px solid #5159e7;
-    border-radius: 30px;
-    background: none;
-    color: blue;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.4s;
+.pic {
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(130deg, #74b9ff, #e66767);
+    margin: auto;
+    border-radius: 50%;
+    background-size: 200% 200%;
+    animation: animated-gradient 2s linear infinite;
 }
 
-.card .profile-button Button:hover {
-    background: white;
-    color: #5159e7;
+@keyframes animated-gradient {
+    25% {
+        background-position: left bottom;
+    }
+    50% {
+        background-position: right bottom;
+    }
+    75% {
+        background-position: right top;
+    }
+    100% {
+        background-position: left top;
+    }
 }
 
-.card .profile-button Button:nth-child(1):hover {
-    background: white;
+
+.pic img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
-.card .profile-button Button:nth-child(1):hover {
-    color: #5159e7;
-    background: white;
+.name {
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 10px 0;
 }
 
-card .detail {
+.desc {
+    font-size: 18px;
+    color: #e66767; 
+}
+
+.card-footer {
+    background: #f4f4f4;
+    padding: 60px 10px;
+}
+
+.numbers {
     display: flex;
-    justify-content: space-between;
-    margin: 40px 0px;
+    align-items: center;
 }
 
-
-.card .detail {
-    display: flex;
-    justify-content: space-between;
-    margin: 1px 0px;
+.item {
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 13px;
+    color:#e66767
 }
 
-.card .follower Button {
-    padding: 15px 40px;
-    border: 1.5px solid #5159e7;
-    border-radius: 30px;
-    background: none;
-    color: blue;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.4s;
+.item span {
+    display: block;
+    color: #2c3a47;
+    font-size: 30px;
 }
 
-.card .follower Button:hover {
-    background: white;
-    color: #5159e7;
-}
-
-.card .follower Button:nth-child(1):hover {
-    background: white;
-}
-
-.card .follower Button:nth-child(1):hover {
-    color: #5159e7;
-    background: white;
+.border {
+    width: 1px;
+    height: 30px;
+    background: #bbb;
 }

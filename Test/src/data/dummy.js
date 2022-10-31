@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiActivity, FiZap } from 'react-icons/fi';
+import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiActivity, FiZap, FiUser } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsFillBarChartFill } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
@@ -40,6 +40,10 @@ export const links = [
         name: 'Exercise',
         icon: <FiActivity />,
       },
+      {
+        name: 'Nutrituion',
+        icon: <FiPieChart/>,
+      }
     ],
   },
   {
