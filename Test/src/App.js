@@ -10,7 +10,7 @@ import {
   UserProfile,
   Login,
 } from "./components";
-import { Calendar, Dashboard,Exercise } from "./pages";
+import { Calendar, Dashboard,Exercise,Register } from "./pages";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
@@ -22,13 +22,13 @@ const App = () => {
 
   return (
     <div>
-      {(location.pathname === '/CPSC-362-Project') ? null :
+      {(location.pathname === '/CPSC-362-Project' || location.pathname === '/Register') ? null :
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
           <Navbar />
         </div>
       }
 
-      {(location.pathname === '/CPSC-362-Project') ? null :
+      {(location.pathname === '/CPSC-362-Project' || location.pathname === '/Register') ? null :
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
@@ -68,6 +68,7 @@ const App = () => {
 
               {/* Pages */}
               <Route path="/UserProfile" element={<UserProfile />} />
+              <Route path="/Register" element= {<Register />} />
               <Route path="/Exercise" element={<Exercise />} />
               <Route path="/Calendar" strict element={<Calendar />} />
             </Routes>

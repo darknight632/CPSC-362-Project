@@ -81,7 +81,9 @@ function LoginForm() {
             />
           </div>
           <div>
-            <button onClick={() => navigate("/HUD")}>Submit</button>
+            <button className= "flex mr-20 relative" onClick={() => navigate("/HUD")}>Submit</button>
+            <button className= "flex ml-10 relative" onClick={() => navigate("/Register")}>Register</button>
+
           </div>
         </div>
       </div>
