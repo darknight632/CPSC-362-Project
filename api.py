@@ -1,3 +1,8 @@
+
+#IMPORTANT NOTE fastapi doesn't allow you to post via the body only in the url with ? separating the frist attribute
+# and & to separate the other attributes
+#EX:http://127.0.0.1:8000/client?user_names=foo&first_name=bloa
+
 #from codecs import getencoder
 #import decimal
 from fastapi import FastAPI
@@ -5,6 +10,8 @@ import mysql.connector    # https://www.w3schools.com/python/python_mysql_getsta
 
 app = FastAPI()  
 connection =  mysql.connector.connect(host = "localhost", user = "root", password = "Holdon234&$!",database = "fitness")
+#mysql://b7282e7db1ca80:b48f6bbf@us-cdbr-east-06.cleardb.net/heroku_93ce4b8f595f1c9?reconnect=true
+
 
 @app.get("/security_questions")
 def get_security_questions():
@@ -40,29 +47,45 @@ def get_client(client_id: int):
     return {"client": records}
 
 
-#@app.post("/client")
-  
-#def post_client(user_names:str, first_name:str, last_name:str, passwords:str, security_question:str, security_answer:str, gender:str, age:int, height:int, weights:float, calorie_intake_per_day:int):
+# user_names = '1"); Delete from client'
+  #("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d","%d", "%.2f", "%d")""")
+  # sql_insert_Query = """
+  #   INSERT INTO client 
+  #     (user_names, first_name, last_name, passwords, security_question, 
+  #     security_answer, gender, age, height, weights, calorie_intake_per_day) 
+  #     VALUES 
+  #     (%s, %s, %s, %s, %s, %s, %s, %d, %d, %.2f, %d)"""
+  # cursor = connection.cursor()
 
-  # user_names = '1"); Delete from client'
-  
-#  sql_insert_Query = """
-#    INSERT INTO client 
-#      (user_names, first_name, last_name, passwords, security_question, 
-#      security_answer, gender, age, height, weights, calorie_intake_per_day) 
-#      VALUES 
-#      ("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d","%d", "%.2f", "%d")"""
-#  cursor = connection.cursor()
+  # cursor.execute(sql_insert_Query, (user_names, first_name, last_name, passwords, security_question, 
+  #   security_answer, gender, age, height, weights, calorie_intake_per_day) );
 
-#  cursor.execute(sql_insert_Query, (user_names, ),(first_name, ),(last_name, ),(passwords, ),(security_question, ),(security_answer, ), (gender, ), (age, ), (height, ), (weights, ), (calorie_intake_per_day, ));
+#When it comes to python mysql binding all parameters know how to convert into data types so
+#every format specifier should be %s
+
+@app.post("/client") 
+def post_client(user_names:str, first_name:str, last_name:str, passwords:str, security_question:str, 
+  security_answer:str, gender:str, age:int, height:int, weights:float, calorie_intake_per_day:int):
+    sql_insert_Query = """
+    INSERT INTO client 
+      (user_names, first_name, last_name, passwords, security_question, security_answer, gender, age, height, weights, calorie_intake_per_day) 
+      VALUES 
+      (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    cursor = connection.cursor(buffered=True)
+
+    cursor.execute(sql_insert_Query, (user_names, first_name, last_name, passwords, 
+    security_question, security_answer, gender, age, height, weights, calorie_intake_per_day) )
 
     #The id doesn't exist until after INSERT occurs
-#  cursor = connection.cursor()
-#  cursor.execute('SELECT LAST_INSERT_ID() AS new_id')
-#  record = cursor.fetchone()
+    #buffered=True retrieves the rows we need to put the data in
+    cursor = connection.cursor(buffered=True)
+    cursor.execute('SELECT LAST_INSERT_ID() AS new_id FROM client')
+    record = cursor.fetchone()
 
-#  record.new_id #=> whatever id you have
-#  return {"client":record}
+
+    cursor.close()
+    #record.new_id #=> whatever id you have
+    return {"client":record}
 
 #Give the user id to use for the get method
   # Figure out how FastAPI want you to return the location from a POST request
