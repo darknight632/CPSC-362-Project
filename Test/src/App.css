@@ -11,6 +11,19 @@
   .sidebar{
     z-index: 10000000;
   }
+    .video {
+      width: 320px;
+      height: 300px;
+  }
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 387px;
+  height: 381px;
+  text-decoration: none;
 }
 
 .e-dlg-center-center, .e-quick-popup-wrapper.e-device{
