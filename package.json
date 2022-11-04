@@ -2,8 +2,10 @@
   "name": "project_syncfusion_dashboard",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "engines": {
-    "node": "12.11.1"
+    "node": "16.17.0",
+    "npm":  "8.19.2"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
