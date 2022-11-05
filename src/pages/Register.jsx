@@ -100,7 +100,7 @@ const Register = () => {
                         />
                     </div>
                     <div>
-                        <button onClick={() => navigate("/CPSC-362-Project")}>Submit</button>
+                        <button onClick={() => navigate("/")}>Submit</button>
                     </div>
                 </div>
             </div>
