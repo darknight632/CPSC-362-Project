@@ -63,7 +63,7 @@ const App = () => {
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path="/CPSC-362-Project" strict element={<Login />} />
+              <Route path="/" strict element={<Login />} />
               <Route path="/HUD" element={<Dashboard />} />
 
               {/* Pages */}
