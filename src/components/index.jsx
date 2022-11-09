@@ -1,4 +1,6 @@
 export { default as Button } from './Button';
+export { default as MealList } from './MealList'
+export { default as Meal } from './Meal'
 export { default as ThemeSettings } from './ThemeSettings';
 export { default as Sidebar } from './Sidebar';
 export { default as Navbar } from './Navbar';
