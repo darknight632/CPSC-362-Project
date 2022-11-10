@@ -23,9 +23,11 @@ section {
 .input-nutrition {
     margin: 2rem 0 1rem 0;
     text-align: center;
-    padding: 0.5rem;
+    padding: rem;
     margin-bottom: 1rem;
-
+    color: grey;
+    box-shadow: 0 4px 8px 2px rgb(77, 77, 77, 0.15);
+    font-weight: bold;
 }
 
 .button-nutrition {
@@ -85,17 +87,17 @@ section {
 .instructions {
     font-size: .9rem;
     margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 .a-food {
-    text-decoration: none;
     background-color: #3cb373;
     color: #f3f3f3;
     width: fit-content;
-    padding: 0.5rem 1rem
+    padding: 0.5rem 1rem;
 }
 
 .a-food:hover {
     cursor: pointer;
-    background-color: #3cb373;
+    background-color: rgb(102, 205, 10);
 }
