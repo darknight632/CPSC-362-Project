@@ -4,7 +4,7 @@ import './Nutrition.css'
 
 function Nutrituion() {
     const [mealData, setMealData] = useState(null);
-    const [calories, setCalories] = useState(2000);
+    const [calories, setCalories] = useState();
     
     function getMealData() {
       fetch(
