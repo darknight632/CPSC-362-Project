@@ -41,7 +41,7 @@ export const links = [
         icon: <FiActivity />,
       },
       {
-        name: 'Nutrituion',
+        name: 'Nutrition',
         icon: <FiPieChart/>,
       }
     ],

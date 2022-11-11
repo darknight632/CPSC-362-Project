@@ -10,7 +10,7 @@ import {
   UserProfile,
   Login,
 } from "./components";
-import { Calendar, Dashboard,Exercise,Register,Profile,Nutrition,ExerciseDetails } from "./pages";
+import { Calendar, Dashboard,Exercise,Register,Profile,Nutrituion,ExerciseDetails } from "./pages";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
@@ -22,13 +22,13 @@ const App = () => {
 
   return (
     <div>
-      {(location.pathname === '/CPSC-362-Project' || location.pathname === '/Register') ? null :
+      {(location.pathname === '/' || location.pathname === '/Register') ? null :
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
           <Navbar />
         </div>
       }
 
-      {(location.pathname === '/CPSC-362-Project' || location.pathname === '/Register') ? null :
+      {(location.pathname === '/' || location.pathname === '/Register') ? null :
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
@@ -41,7 +41,7 @@ const App = () => {
           </TooltipComponent>
         </div>
       }
-      {location.pathname === '/CPSC-362-Project' ? setActiveMenu(false): ''}
+      {location.pathname === '/' ? setActiveMenu(false): ''}
       <div className="flex relative dark:bg-main-dark-bg">
         {activeMenu ? (
           <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
@@ -63,7 +63,7 @@ const App = () => {
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path="/CPSC-362-Project" strict element={<Login />} />
+              <Route path="/" strict element={<Login />} />
               <Route path="/HUD" element={<Dashboard />} />
 
               {/* Pages */}
@@ -72,7 +72,7 @@ const App = () => {
               <Route path="/Exercise" element={<Exercise />} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/exercise/:id" element={<ExerciseDetails />} />
-              <Route path="/Nutrituion" element={<Nutrition />} />
+              <Route path="/Nutrition" element={<Nutrituion />} />
               <Route path="/Calendar" strict element={<Calendar />} />
             </Routes>
           </div>
