@@ -35,7 +35,7 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
-        <button onClick={() => navigate("/CPSC-362-Project")} color='black' bgColor={currentColor} borderRadius='10px' width='full items-center'>
+        <button onClick={() => navigate("/")} color='black' bgColor={currentColor} borderRadius='10px' width='full items-center'>
           Log Out
         </button>
       </div>
