@@ -10,10 +10,10 @@ from fastapi import FastAPI
 import mysql.connector    # https://www.w3schools.com/python/python_mysql_getstarted.asp
 
 app = FastAPI()  
-#connection =  mysql.connector.connect(host = "us-cdbr-east-06.cleardb.net", user = "b7282e7db1ca80", password = "b48f6bbf",database = "heroku_93ce4b8f595f1c9")
+connection =  mysql.connector.connect(host = "us-cdbr-east-06.cleardb.net", user = "b7282e7db1ca80", password = "b48f6bbf",database = "heroku_93ce4b8f595f1c9")
 #mysql://b7282e7db1ca80:b48f6bbf@us-cdbr-east-06.cleardb.net/heroku_93ce4b8f595f1c9?reconnect=true
-connection =  mysql.connector.connect(host = "localhost", user = "root",
- password = "Holdon234&$!",database = "fitness")
+#connection =  mysql.connector.connect(host = "localhost", user = "root",
+# password = "Holdon234&$!",database = "fitness")
 
 @app.get("/security_questions")
 def get_security_questions():
@@ -85,7 +85,7 @@ def post_client(user_names:str, first_name:str, last_name:str, passwords:str, se
     record = cursor.fetchone()
 
     #we need to use the connection.commit() in order to make sure that any changes to the database actually happen
-    #connection.commit()
+    connection.commit()
     cursor.close()
     connection.close()
     #record.new_id #=> whatever id you have
@@ -102,13 +102,16 @@ def post_client(user_names:str, first_name:str, last_name:str, passwords:str, se
 
 
 #need to implement update for user name, first name, email ,and passwords
-
-#@app.put("/client_update_user_name/{client_id}")
+#put is used to change the entire database while patch is used for certain parts of the database
+#@app.patch("/client_update_user_name/{client_id}")
 #def update_client(user_names:str, client_id: int):
 #  sql_insert_Query = """
 #    UPDATE client    
 #    SET user_names = %s
-#    WHERE"""
-#    cursor = connection.cursor()
-
-#    cursor.execute(sql_insert_Query, (user_names, ) )
+#    WHERE id = (?)""", [client_id]
+#  cursor = connection.cursor(buffered = True)
+#  cursor.execute(sql_insert_Query, (user_names, client_id ) )
+#  connection.commit()
+#  cursor.close()
+#  connection.close()
+#  return {"client":record}
