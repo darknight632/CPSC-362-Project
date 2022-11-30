@@ -66,11 +66,11 @@ def get_client(client_id: int):
 #every format specifier should be %s
 
 @app.post("/client") 
-def post_client(user_names:str, first_name:str, last_name:str, passwords:str, security_question:str, 
+def post_client(id:int, user_names:str, first_name:str, last_name:str, passwords:str, security_question:str, 
   security_answer:str, gender:str, age:int, height:int, weights:float, calorie_intake_per_day:int):
     sql_insert_Query = """
     INSERT INTO client 
-      (user_names, first_name, last_name, passwords, security_question, security_answer, gender, age, height, weights, calorie_intake_per_day) 
+      (id,user_names, first_name, last_name, passwords, security_question, security_answer, gender, age, height, weights, calorie_intake_per_day) 
       VALUES 
       (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
     cursor = connection.cursor(buffered=True)
