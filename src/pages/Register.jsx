@@ -18,33 +18,16 @@ const Register = () => {
     let submitHandler = async (e) => {
         e.preventDefault();
         try{
-            let res = await fetch("http://127.0.0.1:8000/client?", {
-                method: "POST",
-                body: JSON.stringify({
-                    "user_names":username,
-                    "first_name":firstname,
-                    "last_name":lastname,
-                    "passwords":password,
-                    "security_question":"color",
-                    "security_answer":S_ans,
-                    "gender":gender,
-                    "age":age,
-                    "height":height,
-                    "weights":weight,
-                    "calorie_intake_per_day":calorie,
-                }),
-                headers: { 'Content-Type': 'application/json' },
+            let res = await fetch(`http://127.0.0.1:8000/client?user_names=${username}&first_name=${firstname}&last_name=${lastname}&passwords=${password}&security_question&security_answer=${S_ans}&gender=${gender}&age=${age}&height=${height}&weights=${weight}&calorie_intake_per_day=${calorie}`, {
+                method: "POST"
             });
-
-            let resJson = await res.json();
-            if(res.status === 200){
-                setName("");
-                setMessage("User create successfully");
-            }else{
-                setMessage("Some error occured");
-            }
         } catch(err){
             console.log(err);
+        }
+        if(res.status == await 200){
+            setFirstName("");
+            setLastName("");
+            setMessage("User created successfully");
         }
     };
     
@@ -143,10 +126,8 @@ const Register = () => {
                             onChange={(e) => setS_ans(e.target.value)}
                         />
                     </div>
-                    <button type="submit">Submit</button>
-                    <div>
-                        {message ? <p>{message}</p> : null}
-                    </div>
+                    <button type="submit" className="flex mr-20 relative">Submit</button>
+                    <button onClick={() => navigate("/")} className="flex ml-12 relative">Return</button>
                 </div>
             </div>
         </form>
