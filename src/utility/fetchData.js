@@ -16,7 +16,14 @@ export const youtubeOptions = {
   }
 };
 
-
+export const DB = {
+  method: 'GET',
+  url: 'us-cdbr-east-06.cleardb.net',
+  headers: {
+    'DB-User': 'b7282e7db1ca80',
+    'DB-Pass': 'b48f6bbf'
+  }
+};
 export const fetchData = async (url,options) => {
     const res = await fetch(url,options);
     const data = await res.json();
