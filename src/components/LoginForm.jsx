@@ -6,16 +6,6 @@ function LoginForm() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/client')
-      .then((res) => {
-        setData(res.data[0]);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }, []);
-
   const adminUser = {
     email: "admin@admin.com",
     password: "12",
