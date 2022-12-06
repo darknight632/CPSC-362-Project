@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
     const [firstname, setFirstName] = useState("");
     const [lastname,setLastName] = useState("");
+    const [question,setQuestion] = useState("Where were you born?");
     const [S_ans,setS_ans] = useState("");
     const [gender,setGender] = useState("");
     const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ const Register = () => {
     let submitHandler = async (e) => {
         e.preventDefault();
         try{
-            let res = await fetch(`http://127.0.0.1:8000/client?user_names=${username}&first_name=${firstname}&last_name=${lastname}&passwords=${password}&security_question&security_answer=${S_ans}&gender=${gender}&age=${age}&height=${height}&weights=${weight}&calorie_intake_per_day=${calorie}`, {
+            let res = await fetch(`http://127.0.0.1:8000/client?user_names=${username}&first_name=${firstname}&last_name=${lastname}&passwords=${password}&security_question=${question}&security_answer=${S_ans}&gender=${gender}&age=${age}&height=${height}&weights=${weight}&calorie_intake_per_day=${calorie}`, {
                 method: "POST"
             });
         } catch(err){
@@ -116,6 +117,17 @@ const Register = () => {
                             placeholder="Calories"
                             onChange={(e) => setCalorie(e.target.value)}
                         />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="name">Security Questions</label>
+                        <select value={question} onChange={(e) => setQuestion(e.target.value)}>
+                            <option value="Where were you born?">Where were you born?</option>
+                            <option value="What was the name of your favorite pet?">What was the name of your favorite pet?</option>
+                            <option value="Who was your favorite professor at CSUF?">Who was your favorite professor at CSUF?</option>
+                            <option value="What is your favorite coding language?">What is your favorite coding language?</option>
+                            <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+
+                        </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="name">Security Answer:</label>
