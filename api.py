@@ -7,6 +7,7 @@
 #import decimal
 from pickle import TRUE
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import mysql.connector    # https://www.w3schools.com/python/python_mysql_getstarted.asp
 
 app = FastAPI()  
@@ -14,10 +15,11 @@ connection =  mysql.connector.connect(host = "us-cdbr-east-06.cleardb.net", user
 #mysql://b7282e7db1ca80:b48f6bbf@us-cdbr-east-06.cleardb.net/heroku_93ce4b8f595f1c9?reconnect=true
 #connection =  mysql.connector.connect(host = "localhost", user = "root",
 # password = "Holdon234&$!",database = "fitness")
+origins = ["*"]
+app.add_middleware (CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"],)
 
 @app.get("/security_questions")
 def get_security_questions():
-    
 # SAFE because no USER INPUT in SQL
     sql_select_Query = "SELECT * from security_questions"
     cursor = connection.cursor()
@@ -28,7 +30,6 @@ def get_security_questions():
 
 @app.get("/client/{client_id}")
 def get_client(client_id: int):
-
 # using "format string"
 
     # BAD client_id = "0 OR 1=1"
