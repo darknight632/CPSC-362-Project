@@ -16,7 +16,6 @@ function LoginForm() {
     let resJson = await res.json();
     if(resJson == ""){
       alert(`Incorrect Username or Password`)
-      window.location.reload();
     }
     else{
       navigate("/HUD");
