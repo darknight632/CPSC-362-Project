@@ -48,6 +48,29 @@ def get_client(client_id: int):
 
     return {"client": records}
 
+@app.get("/{user_names}&{passwords}")
+def get_client(user_names:str,passwords:str):
+
+# using "format string"
+
+    # BAD client_id = "0 OR 1=1"
+    # BAD client_id = '0; DELETE FROM client'
+
+  # 1 way to fix: SANITIZE
+  # sanitized_id = //do a regular expression match for the integer in 'client_id'
+  
+    sql_select_Query = 'SELECT user_names FROM client WHERE user_names = %s AND passwords = %s'
+    cursor = connection.cursor()
+    #the {id: client_id} treats whaever is put in it like a
+   #variable and helps eliminates sql injections
+  #%{id} never modifies the (SQL)format string but does send the data alongside as variablez
+    #cursor.execute(sql_select_Query, { 'id': client_id } )
+    cursor.execute(sql_select_Query,  (user_names, passwords, ) )
+    records = cursor.fetchone()
+
+    return {records}
+
+
 
 # user_names = '1"); Delete from client'
   #("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d","%d", "%.2f", "%d")""")
