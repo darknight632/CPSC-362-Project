@@ -22,13 +22,21 @@ const Register = () => {
             let res = await fetch(`http://127.0.0.1:8000/client?user_names=${username}&first_name=${firstname}&last_name=${lastname}&passwords=${password}&security_question=${question}&security_answer=${S_ans}&gender=${gender}&age=${age}&height=${height}&weights=${weight}&calorie_intake_per_day=${calorie}`, {
                 method: "POST"
             });
+            if(res.status == await 200){
+                setFirstName("");
+                setLastName("");
+                setUsername("");
+                setPassword("");
+                setWeight("");
+                setHeight("");
+                setGender("");
+                setAge("");
+                setCalorie("");
+                setS_ans("");
+                alert("User created successfully");
+            }
         } catch(err){
             console.log(err);
-        }
-        if(res.status == await 200){
-            setFirstName("");
-            setLastName("");
-            setMessage("User created successfully");
         }
     };
     

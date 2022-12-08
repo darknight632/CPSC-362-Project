@@ -14,21 +14,27 @@ function LoginForm() {
     const res = await fetch(`http://127.0.0.1:8000/${username}&${password}`,{
       method: "GET"
     });
+    let resJson = await res.json();
+    setAuth(resJson);
+    if(auth == "NULL"){
+      alert(`Incorrect Username or Password`)
+    }
+    else{
+      navigate("/HUD");
+    }
     } catch(err){
       console.log(err);
     }
-    const {value} = await res.json();
-    setAuth(value);
   };
 
-  let handleClick = () => {
-    if(auth == "NULL"){
-      console.log("Incorrect Username or Password")
-    }
-    else{
-      navigate("/HUD")
-    }
-  };
+  // let handleClick = () => {
+  //   if(auth == "NULL"){
+  //     console.log("Incorrect Username or Password")
+  //   }
+  //   else{
+  //     navigate("/HUD")
+  //   }
+  // };
 
   return (
     <form onSubmit={submitHandler}>
