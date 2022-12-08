@@ -7,6 +7,7 @@
 #import decimal
 from pickle import TRUE
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import mysql.connector    # https://www.w3schools.com/python/python_mysql_getstarted.asp
 
 app = FastAPI()  
@@ -14,10 +15,11 @@ connection =  mysql.connector.connect(host = "us-cdbr-east-06.cleardb.net", user
 #mysql://b7282e7db1ca80:b48f6bbf@us-cdbr-east-06.cleardb.net/heroku_93ce4b8f595f1c9?reconnect=true
 #connection =  mysql.connector.connect(host = "localhost", user = "root",
 # password = "Holdon234&$!",database = "fitness")
+origins = ["*"]
+app.add_middleware (CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"],)
 
 @app.get("/security_questions")
 def get_security_questions():
-    
 # SAFE because no USER INPUT in SQL
     sql_select_Query = "SELECT * from security_questions"
     cursor = connection.cursor()
@@ -28,7 +30,6 @@ def get_security_questions():
 
 @app.get("/client/{client_id}")
 def get_client(client_id: int):
-
 # using "format string"
 
     # BAD client_id = "0 OR 1=1"
@@ -47,6 +48,29 @@ def get_client(client_id: int):
     records = cursor.fetchone()
 
     return {"client": records}
+
+@app.get("/{user_names}&{passwords}")
+def get_client(user_names:str,passwords:str):
+
+# using "format string"
+
+    # BAD client_id = "0 OR 1=1"
+    # BAD client_id = '0; DELETE FROM client'
+
+  # 1 way to fix: SANITIZE
+  # sanitized_id = //do a regular expression match for the integer in 'client_id'
+  
+    sql_select_Query = 'SELECT user_names FROM client WHERE user_names = %s AND passwords = %s'
+    cursor = connection.cursor()
+    #the {id: client_id} treats whaever is put in it like a
+   #variable and helps eliminates sql injections
+  #%{id} never modifies the (SQL)format string but does send the data alongside as variablez
+    #cursor.execute(sql_select_Query, { 'id': client_id } )
+    cursor.execute(sql_select_Query,  (user_names, passwords, ) )
+    records = cursor.fetchone()
+
+    return {records}
+
 
 
 # user_names = '1"); Delete from client'

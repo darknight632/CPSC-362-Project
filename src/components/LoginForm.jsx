@@ -1,21 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
+import { setValue } from "@syncfusion/ej2/base";
 function LoginForm() {
-  const [username,setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useState("NULL");
   const navigate = useNavigate();
-  const [error, setError] = useState("");
 
-  const Login = (details) => {
-    console.log(details);
+  let submitHandler = async (e) => {
+    e.preventDefault();
+    try{
+    const res = await fetch(`http://127.0.0.1:8000/${username}&${password}`,{
+      method: "GET"
+    });
+    } catch(err){
+      console.log(err);
+    }
+    const {value} = await res.json();
+    setAuth(value);
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if(username.includes(data.name.trim())){
-      alert(`${data.name} does not exist`)
-      return
+  let handleClick = () => {
+    if(auth == "NULL"){
+      console.log("Incorrect Username or Password")
+    }
+    else{
+      navigate("/HUD")
     }
   };
 
@@ -24,12 +35,12 @@ function LoginForm() {
       <div className="App">
         <div className="form-inner">
           <h2>Login</h2>
-          {error != "" ? <div className="error">{error}</div> : ""}
           <div className="form-group">
             <label htmlFor="name">Username:</label>
             <input
               type="text"
               name="name"
+              id="name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -40,12 +51,14 @@ function LoginForm() {
               type="password"
               name="password"
               id="password"
-              value= {password}
-              onChange={(e) =>setPassword(e.target.value)}
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
             />
           </div>
           <div>
-            <button className= "flex mr-20 relative">Submit</button>
+            <button className= "flex mr-20 relative" onClick={(e) => this.handleClick(e)}>Submit</button>
             <button className= "flex ml-10 relative" onClick={() => navigate("/Register")}>Register</button>
 
           </div>
