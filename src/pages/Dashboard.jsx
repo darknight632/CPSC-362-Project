@@ -8,7 +8,7 @@ import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, Fi
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsFillBarChartFill } from 'react-icons/bs';
 
 const Dashboard = () => {
-  var id = 144;
+  var id = 344;
 
   const [weight, setWeight] = useState("");
   const [calorie, setCalories] = useState("");

@@ -4,7 +4,7 @@ import pic from "./generic_user.png"
 import "./Profile.css"
 
 const Profile = () => {
-    var id = 144;
+    var id = 344;
     const [userName, setUserName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
