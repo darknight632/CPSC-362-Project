@@ -27,7 +27,7 @@ const Dashboard = () => {
   var earning = [
     {
       icon: <MdOutlineSupervisorAccount />,
-      amount: `0/${calorie}`,
+      amount: `${calorie}/2500`,
       title: 'Calories',
       iconColor: '#03C9D7',
       iconBg: '#E5FAFB',
@@ -35,7 +35,7 @@ const Dashboard = () => {
     },
     {
       icon: <BsBoxSeam />,
-      amount: '40',
+      amount: '70',
       percentage: '%',
       title: 'Progress',
       iconColor: 'rgb(255, 244, 229)',
