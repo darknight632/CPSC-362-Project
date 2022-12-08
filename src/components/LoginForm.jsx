@@ -5,19 +5,18 @@ import { setValue } from "@syncfusion/ej2/base";
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState("NULL");
   const navigate = useNavigate();
 
   let submitHandler = async (e) => {
     e.preventDefault();
     try{
-    const res = await fetch(`http://127.0.0.1:8000/${username}&${password}`,{
+    let res = await fetch(`http://127.0.0.1:8000/${username}&${password}`,{
       method: "GET"
     });
     let resJson = await res.json();
-    setAuth(resJson);
-    if(auth == "NULL"){
+    if(resJson == ""){
       alert(`Incorrect Username or Password`)
+      window.location.reload();
     }
     else{
       navigate("/HUD");
